@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Poll Example</title>
+</head>
+<body>
+  <h2>What is your favorite color?</h2>
+  <form id="pollForm">
+    <input type="radio" name="color" value="Red">Red<br>
+    <input type="radio" name="color" value="Blue">Blue<br>
+    <input type="radio" name="color" value="Green">Green<br>
+    <input type="radio" name="color" value="Yellow">Yellow<br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <div id="pollResults"></div>
+
+  <script>
+    document.getElementById("pollForm").onsubmit = function(event) {
+      event.preventDefault();
+      var color = document.querySelector('input[name="color"]:checked').value;
+      var pollResults = document.getElementById("pollResults");
+      pollResults.innerHTML = "You voted for " + color + ".";
+    }
+  </script>
+</body>
+</html>
